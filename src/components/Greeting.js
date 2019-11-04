@@ -1,8 +1,8 @@
 import React from 'react';
-import Time from './Time';
 
 
-class Clock extends React.Component {
+class Greeting extends React.Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -34,20 +34,12 @@ class Clock extends React.Component {
 
     render() {
         return (
-            <div id="greeting-clock-div">
-                {/* <h2 id="clock">{this.state.time}</h2> */}
-                <Time greet={this.greet}/>
-                <h3 id="greeting">{this.state.greeting}<button id="more-options" onClick={() => this.setState({renderDropdown: !this.state.renderDropdown})}>•••</button></h3>
-                {this.state.renderDropdown ?
-                  <ul id="more-options-list">
-                    <li className="more-options-item" onClick={() => this.setMantra()}>Show today's mantra</li>
-                    <li className="more-options-item" onClick={() => console.log('update currentUser name using prop function')}>Edit your name</li>
-                  </ul>
-                : null}
+            <div>
+                
             </div>
         )
     }
-
 }
 
-export default Clock;
+
+export default Greeting;
