@@ -1,6 +1,7 @@
 import React from 'react';
 
 class Time extends React.Component {
+   _isMounted = false;
 
     constructor(props) {
         super(props);
@@ -8,11 +9,15 @@ class Time extends React.Component {
             time: '',
         }
     }
+    
     componentDidMount() {
-        this.getTime();
-        setInterval(() => {
+        this._isMounted = true;
+        if (this._isMounted) {
             this.getTime();
-        }, 1000);
+            setInterval(() => {
+                this.getTime();
+            }, 1000);
+        }
     }
 
     getTime = () => {
@@ -21,7 +26,11 @@ class Time extends React.Component {
         minutes = String(minutes).length === 1 ? `0${minutes}` : minutes;
         let time = `${dateTime.getHours()}:${minutes}`;
         this.setState({time});
-        if (this.props.greet) this.props.greet(time);
+        if (this.props.greet && this._isMounted) this.props.greet(time);
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
     }
 
     render(){

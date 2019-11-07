@@ -17,19 +17,18 @@ class App extends React.Component {
   }
 
   retreiveUser = () => {
-    const isReturningUser = JSON.parse(localStorage.getItem('impetus'));
-    if (isReturningUser) {
-      this.setState({currentUser: isReturningUser.user});
+    const user = localStorage.getItem('user');
+    if (user) {
+      this.setState({currentUser: user});
     } else {
       this.setState({promptUserName: true});
     }
   }
 
   setUser = name => {
-    const user = { name };
-    localStorage.setItem('impetus', user);
-    this.setState({
-      currentUser: user,
+    localStorage.setItem('user', name);
+     this.setState({
+      currentUser: name,
       promptUserName: false,
     });
   }
