@@ -1,44 +1,31 @@
 import React from 'react';
+import Time from './Time';
 
 
 class Clock extends React.Component {
+
     constructor(props) {
         super(props);
         this.state = {
-            currentUser: this.props.currentUser,
+            currentUser: localStorage.getItem('user') || this.props.currentUser,
             greeting: '',
             time: '',
             renderDropdown: false,
+            isMounted: false
         }
-    }
-
-    componentDidMount() {
-        this.getTime();
-        setInterval(() => {
-            this.getTime();
-        }, 1000);
-    }
-
-    getTime = () => {
-        let dateTime = new Date();
-        let minutes = dateTime.getMinutes();
-        minutes = String(minutes).length === 1 ? `0${minutes}` : minutes;
-        let time = `${dateTime.getHours()}:${minutes}`;
-        this.setState({time});
-        this.greet(time);
     }
 
     greet = time => {
         let newTime = parseInt(time.replace(':', ''));
         let greeting =  newTime < 1200 ? 'Good Morning': newTime > 1700 ? 'Good Evening' : 'Good Afternoon';
-        this.state.currentUser.name ? this.setState({greeting: `${greeting}, ${this.state.currentUser.name}.`}) : this.setState({ greeting });
+        this.state.currentUser ? this.setState({greeting: `${greeting}, ${this.state.currentUser}.`}) : this.setState({ greeting });
     }
 
     renderDropdown = () => {
         return (
             <ul id="more-options-list">
                 <li className="more-options-item" onClick={() => this.setMantra()}>Show today's mantra</li>
-                <li className="more-options-item" onClick={() => console.log('update currentUser name using prop function')}>Edit your name</li>
+                <li className="more-options-item" onClick={() => this.props.updateName()}>Edit your name</li>
             </ul>
         )
     }
@@ -47,17 +34,17 @@ class Clock extends React.Component {
         this.setState({greeting: 'You are enough.'});
     }
 
+    componentDidMount() {
+        this.setState({isMounted: true});
+    }
+    
+
     render() {
         return (
             <div id="greeting-clock-div">
-                <h2 id="clock">{this.state.time}</h2>
+                {this.state.isMounted ? <Time greet={this.greet}/> : null}
                 <h3 id="greeting">{this.state.greeting}<button id="more-options" onClick={() => this.setState({renderDropdown: !this.state.renderDropdown})}>•••</button></h3>
-                {this.state.renderDropdown ?
-                  <ul id="more-options-list">
-                    <li className="more-options-item" onClick={() => this.setMantra()}>Show today's mantra</li>
-                    <li className="more-options-item" onClick={() => console.log('update currentUser name using prop function')}>Edit your name</li>
-                  </ul>
-                : null}
+                {this.state.renderDropdown ? this.renderDropdown() : null}
             </div>
         )
     }
