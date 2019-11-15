@@ -16,7 +16,7 @@ class FocusForm extends React.Component {
                     e.preventDefault();
                     this.props.setMainFocus(this.state.focus);
                 }}>
-                <input id="form-input" onChange={(e) => this.setState({focus: e.target.value})}></input>
+                    <input id="form-input" onChange={(e) => this.setState({focus: e.target.value})}></input>
                 </form>
             </div>
         )

@@ -2,24 +2,33 @@
   overflow: hidden;
 } */
 
+
+#app img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  overflow: hidden;
+}
+
 #sub-container {
   top: 0;
   position: absolute;
-  object-fit: cover;
+  /* object-fit: cover;
   height: 100%;
-  width: 100%;
+  width: 100%; */
   z-index: -1;
 }
 
 .background-image {
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
 }
 
 #top-container {
+  width: 100%;
+  height: 100%;
   top: 0;
   position: relative;
-  /* overflow: hidden; */
   z-index: 1;
 }
 
@@ -39,6 +48,8 @@
   text-align: center;
   color: white;
   margin-block-start: 1%;
+  display: inline-flex;
+  justify-content: center;
 }
 
 #greeting #more-options {
@@ -51,12 +62,27 @@
   height: 2em;
   width: 2em;
   margin-left: .5em;
+  list-style: none;
+  visibility: hidden;
+  margin-top: .5em;
+}
+
+#greeting:hover #more-options {
+  visibility: visible;
 }
 
 #greeting #more-options:hover {
-  /* outline: none; */
+  visibility: visible;
   border-radius: 50%;
   background: rgba(136, 136, 136, 0.577);
+}
+
+
+.more-options-item {
+  color: white;
+  font-size: 2em;
+  text-align: center;
+  list-style: none;
 }
 
 .focus-text-header {
@@ -87,12 +113,11 @@
   margin-right: auto;
   display: inline-flex;
   align-items: center;
-  justify-content: space-between;
 }
 
 #main-focus-mark-complete {
-  width: 1em;
-  height: 1em;
+  width: 2em;
+  height: 2em;
 }
 
 #main-focus-text {
@@ -100,6 +125,7 @@
   display: block;
   padding-left: .5em;
   padding-right: .5em;
+  font-size: 2em;
 }
 
 #main-focus-text-completed {
@@ -109,13 +135,16 @@
   padding-right: .5em;
   text-decoration: line-through;
   color: white;
+  font-size: 2em;
 }
 
 #main-focus-delete {
   border: none;
-  font-size: 1em;
+  font-size: 1.5em;
   background: none;
   outline: none;
+  color:white;
+  bottom: 0
 }
 
 #main-focus-mark-complete,
@@ -138,4 +167,29 @@
   margin: auto;
   margin-top: 20%;
   text-align: center;
+}
+
+form#underlined-form-user {
+  font-size: .5em;
+  background: rgba(255, 255, 255, 0.561);
+  width: 20%;
+}
+
+#form-input-user {
+  border: none;
+  outline: none;
+  border-bottom: 2px solid white;
+  width: 100%;
+  /* text-align: center; */
+  background-color: transparent;
+  color: white;
+  font-size: 2em;
+  padding: 0;
+}
+
+#weather-div {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1%;
 }
