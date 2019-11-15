@@ -39,6 +39,8 @@
   text-align: center;
   color: white;
   margin-block-start: 1%;
+  display: inline-flex;
+  justify-content: center;
 }
 
 #greeting #more-options {
@@ -51,12 +53,27 @@
   height: 2em;
   width: 2em;
   margin-left: .5em;
+  list-style: none;
+  visibility: hidden;
+  margin-top: .5em;
+}
+
+#greeting:hover #more-options {
+  visibility: visible;
 }
 
 #greeting #more-options:hover {
-  /* outline: none; */
+  visibility: visible;
   border-radius: 50%;
   background: rgba(136, 136, 136, 0.577);
+}
+
+
+.more-options-item {
+  color: white;
+  font-size: 2em;
+  text-align: center;
+  list-style: none;
 }
 
 .focus-text-header {
@@ -87,7 +104,6 @@
   margin-right: auto;
   display: inline-flex;
   align-items: center;
-  justify-content: space-between;
 }
 
 #main-focus-mark-complete {
@@ -138,4 +154,22 @@
   margin: auto;
   margin-top: 20%;
   text-align: center;
+}
+
+form#underlined-form-user {
+  font-size: .5em;
+  background: rgba(255, 255, 255, 0.561);
+  width: 20%;
+}
+
+#form-input-user {
+  border: none;
+  outline: none;
+  border-bottom: 2px solid white;
+  width: 100%;
+  /* text-align: center; */
+  background-color: transparent;
+  color: white;
+  font-size: 2em;
+  padding: 0;
 }

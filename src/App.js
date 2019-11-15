@@ -7,7 +7,6 @@ import FocusForm from './components/FocusForm';
 import Focus from './components/Focus';
 import Welcome from './components/Welcome';
 
-
 class App extends React.Component {
 
   state = {
@@ -33,6 +32,10 @@ class App extends React.Component {
     });
   }
 
+  promptUserName = () => {
+    this.setState({promptUserName: !this.state.promptUserName});
+  }
+
   setMainFocus = mainFocus => {
     this.setState({ mainFocus })
   }
@@ -41,12 +44,17 @@ class App extends React.Component {
     this.retreiveUser();
   }
 
-
   renderFocusForm() {
     if (this.state.promptUserName) {
       return null;
     } 
-    return this.state.mainFocus ? <Focus mainFocus={this.state.mainFocus} setMainFocus={this.setMainFocus} /> : <FocusForm setMainFocus={this.setMainFocus} />
+    return this.state.mainFocus ? <Focus mainFocus = {
+      this.state.mainFocus
+    }
+    setMainFocus = {
+      this.setMainFocus
+    }
+    /> : <FocusForm setMainFocus={this.setMainFocus} />
   }
 
   render() {
@@ -56,7 +64,12 @@ class App extends React.Component {
           <img className="background-image" src={valley} />
         </div>
         <div id="top-container">
-          {this.state.promptUserName ? <Welcome setUser={this.setUser} /> : <Clock currentUser={this.state.currentUser} />}
+          {
+            this.state.promptUserName ? <Welcome setUser = {
+              this.setUser
+            }
+            /> : <Clock currentUser={this.state.currentUser} setUser={this.setUser} />
+          }
           {this.renderFocusForm()}
         </div>
       </div>
