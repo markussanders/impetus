@@ -23,7 +23,7 @@ class Weather extends React.Component {
             const weatherDesc = this.formatDesc(json.weather[0].description);
             const location = json.name;
             this.setState({location, temp, weatherDesc});
-            localStorage.setItem('weather', this.state);
+            // localStorage.setItem('weather', this.state);
         });
     }
 
