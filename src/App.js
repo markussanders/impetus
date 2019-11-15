@@ -1,11 +1,13 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import './App.css';
-import valley from './photos/valley.jpg';
+// import valley from './photos/valley.jpg';
 import Clock from './components/Clock';
 import FocusForm from './components/FocusForm';
 import Focus from './components/Focus';
 import Welcome from './components/Welcome';
+import Weather from './components/Weather';
+import Background from './components/Background';
 
 class App extends React.Component {
 
@@ -59,9 +61,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="app">
         <div id="sub-container">
-          <img className="background-image" src={valley} />
+          <Background/>
+          {/* <Weather /> */}
         </div>
         <div id="top-container">
           {

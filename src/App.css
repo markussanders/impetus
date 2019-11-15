@@ -2,24 +2,33 @@
   overflow: hidden;
 } */
 
+
+#app img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  overflow: hidden;
+}
+
 #sub-container {
   top: 0;
   position: absolute;
-  object-fit: cover;
+  /* object-fit: cover;
   height: 100%;
-  width: 100%;
+  width: 100%; */
   z-index: -1;
 }
 
 .background-image {
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
 }
 
 #top-container {
+  width: 100%;
+  height: 100%;
   top: 0;
   position: relative;
-  /* overflow: hidden; */
   z-index: 1;
 }
 
@@ -107,8 +116,8 @@
 }
 
 #main-focus-mark-complete {
-  width: 1em;
-  height: 1em;
+  width: 2em;
+  height: 2em;
 }
 
 #main-focus-text {
@@ -116,6 +125,7 @@
   display: block;
   padding-left: .5em;
   padding-right: .5em;
+  font-size: 2em;
 }
 
 #main-focus-text-completed {
@@ -125,13 +135,16 @@
   padding-right: .5em;
   text-decoration: line-through;
   color: white;
+  font-size: 2em;
 }
 
 #main-focus-delete {
   border: none;
-  font-size: 1em;
+  font-size: 1.5em;
   background: none;
   outline: none;
+  color:white;
+  bottom: 0
 }
 
 #main-focus-mark-complete,
@@ -172,4 +185,11 @@ form#underlined-form-user {
   color: white;
   font-size: 2em;
   padding: 0;
+}
+
+#weather-div {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1%;
 }
