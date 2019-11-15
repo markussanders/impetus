@@ -64,7 +64,7 @@ class App extends React.Component {
       <div id="app">
         <div id="sub-container">
           <Background/>
-          {/* <Weather /> */}
+          <Weather />
         </div>
         <div id="top-container">
           {

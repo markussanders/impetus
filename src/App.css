@@ -192,4 +192,22 @@ form#underlined-form-user {
   top: 0;
   right: 0;
   margin: 1%;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+}
+
+#weather-temp {
+  color: white;
+  padding: 0;
+}
+
+#weather-location {
+  display: inline-flex;
+  color: white;
+  padding: 0;
+}
+
+#weather-desc {
+  color: white;
+  padding: 0;
 }
