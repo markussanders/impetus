@@ -19,7 +19,6 @@ class Weather extends React.Component {
         fetch(url)
         .then(resp => resp.json())
         .then(json => {
-            console.log('JSON =', json);
             const temp = this.convertToFahrenheit(json.main.temp) + 'º';
             const weatherDesc = this.formatDesc(json.weather[0].description);
             const location = json.name;

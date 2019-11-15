@@ -14,7 +14,6 @@ class Background extends React.Component {
         fetch(url)
             .then(resp => resp.json())
             .then(json => {
-                console.log(json);
                 localStorage.setItem('backgroundUrl', json.urls.full);
                 this.setState({
                     imgUrl: json.urls.full,

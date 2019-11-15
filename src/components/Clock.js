@@ -33,7 +33,7 @@ class Clock extends React.Component {
                     <li className="more-options-item" onClick={() => this.setMantra()}>Show today's mantra</li>
                     <li className="more-options-item" onClick={() => {
                         this.setState({updateCurrentUser: !this.state.updateCurrentUser})
-                        console.log('CLICKED')}}>Edit your name</li>
+                        }}>Edit your name</li>
                 </ul>
             )
         } else {
